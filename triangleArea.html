@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Area</title>
+</head>
+<body>
+    <nav class="navbar-container">
+
+        <div class="brand-name">Fun with Triangles</div>
+
+        <ul class="non-bullet-list">
+            <li class="lists-inline "><a class="links" href="/"> Is Triangle?</a> </li>
+            <li class="lists-inline"> <a class="links" href="/quiz.html">Quiz </a> </li>
+            <li class="lists-inline"> <a class="links" href="/hypotenuse.html"> Hypotenuse </a></li>
+            <li class="lists-inline"> <a class="links list-active" href="/triangleArea.html"> Area of Triangles </a></li>
+        </ul>
+    </nav>
+
+    <h1>Calculate Area of a triangle</h1>
+
+    <div class="container">
+        <label for="side-one">Side1</label>
+        <input placeholder="Enter side 1 value" type="number" id="side-one" />
+        <br>
+        <label for="side-two">Side2</label>
+        <input placeholder="Enter side 2 value" type="number" id="side-two" />
+        <br>
+        <label for="side-three">Side3</label>
+        <input placeholder="Enter side 3 value" type="number" id="side-three" />
+        <br>
+        <button id="btn-check-area">Calculate Area</button>
+
+        <h2 id="area-message"></h2>
+    </div>
+
+    <footer class="footer-container">
+
+        <ul>
+            <h3 class="footer-list"> Social media presence</h3>
+            <li class="lists-inline"> <a class="footer-list "
+                    href="https://github.com/YashwanthKore"><strong>Github</strong></a> </li>
+            <li class="lists-inline"> <a class="footer-list"
+                    href="https://www.linkedin.com/in/yashwanth-kore-14591b196/"><strong>LinkedIn</strong> </a> </li>
+            <li class="lists-inline"> <a class="footer-list" href="https://twitter.com/YashwanthKore"><strong>Twitter
+                    </strong></a> </li>
+        </ul>
+
+    </footer>
+
+    <script>
+        var sideOne = document.querySelector("#side-one")
+        var sideTwo = document.querySelector("#side-two")
+        var sideThree = document.querySelector("#side-three")
+        var areaMessage = document.querySelector("#area-message")
+        var btnCheckArea = document.querySelector("#btn-check-area")
+
+        function checkArea(){
+            var perimeter = Number(sideOne.value)+ Number(sideTwo.value)+Number(sideThree.value)
+            var s = perimeter/2
+            // console.log(s)
+            var triangleArea = Math.sqrt(s*(s-sideOne.value)*(s-sideTwo.value)*(s-sideThree.value))
+            // console.log(triangleArea)
+            console.log(areaMessage.innerHTML)
+            areaMessage.innerHTML ="Area of a triangle using heron's formula is: "+ triangleArea
+
+            sideOne.value = ""
+            sideTwo.value = ""
+            sideThree.value = ""
+        }
+
+        btnCheckArea.addEventListener("click", checkArea)
+    </script>
+</body>
+</html>
